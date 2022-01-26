@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+import django_heroku
+import django_on_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +29,7 @@ SECRET_KEY = 'django-insecure-&m2(4iag&u@x*+unm_o=dss$pr0_bndz^axu0oq-)peb$f#=pr
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://ahsanportfolio.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -79,10 +83,10 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'table',
-        'USER':'postgres',
-        'PASSWORD': 'undpadmin4axiz',
-        'HOST': 'localhost',
+        'NAME': 'df6kamnmui7in2',
+        'USER':'lathjrphrezezv',
+        'PASSWORD': '70929ce8f1e4d65ee59502cac55a149da8dd3252f14c2a50afe175c49103d676',
+        'HOST': 'ec2-3-224-157-224.compute-1.amazonaws.com',
         'PORT':'5432'
 
     }
@@ -139,3 +143,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
