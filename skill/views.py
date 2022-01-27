@@ -1,6 +1,5 @@
 
 from re import T
-from tkinter import E
 from unicodedata import name
 from django.shortcuts import render
 from django.template import context
